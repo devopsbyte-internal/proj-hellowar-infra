@@ -1,0 +1,9 @@
+.terraform/
+*.tfstate
+*.tfstate.backup
+crash.log
+crash.*.log
+
+# Env specific:
+terraform.tfvars
+*.auto.tfvars

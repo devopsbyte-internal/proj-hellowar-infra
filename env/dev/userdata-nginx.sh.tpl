@@ -2,15 +2,19 @@
 
 set -euo pipefail
 
-echo "[user_data] Updating system..."
-dnf -y update || yum -y update
 
-echo "[user_data] Installing NGINX..."
-dnf -y install nginx || yum -y install nginx
 
-echo "[user_data] Enabling and starting NGINX..."
-systemctl enable nginx
-systemctl start nginx
+echo "[user_data] Starting backend bootstrap..." 
 
-echo "[user_data] Done (Nginx)"
+# Adjust this URL to your real GitHub raw URL
+BOOTSTRAP_URL="${bootstrap_url}"
+
+curl -fSL "$BOOTSTRAP_URL" -o /root/bootstrap-nginx.sh
+chmod +x /root/bootstrap-nginx.sh
+
+echo "[user_data] Running bootstrap script..."
+/root/bootstrap-nginx.sh
+
+sleep 1
+echo "[user_data] Backend bootstrap completed."
 

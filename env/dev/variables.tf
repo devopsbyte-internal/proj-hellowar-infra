@@ -1,3 +1,16 @@
+
+variable "en_be" {
+  description = "Toggle to provision BE Infra"
+  type = bool
+  default = false
+}
+
+variable "en_fe" {
+  description = "Toggle to provision FE Infra"
+  type = bool
+  default = false
+}
+
 variable "aws_region" {
   description = "AWS region to deploy backend EC2 for Tomcat"
   type        = string
@@ -8,7 +21,7 @@ variable "aws_region" {
 variable "instance_type" {
   description = "EC2 instance type for Tomcat server"
   type        = string
-  default     = "t3.micro"
+  default     = "t2.micro"
 }
 
 

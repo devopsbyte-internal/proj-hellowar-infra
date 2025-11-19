@@ -4,6 +4,11 @@ cd tf
 terraform init
 
 terraform apply \
+  -var="enable_backend=true" \
+  -var="enable_frontend=false"
+  
+
+terraform apply \
   -var "key_name=YOUR_KEYPAIR_NAME" \
   -var "my_ip_cidr=YOUR_IP/32"
 

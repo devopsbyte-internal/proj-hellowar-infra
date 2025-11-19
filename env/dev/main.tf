@@ -39,7 +39,8 @@ data "aws_subnets" "default" {
 
 # User data script: download & run bootstrap-tomcat.sh
 locals {
-  be_bootstrap_url = "https://raw.githubusercontent.com/devopsbyte-internal/proj-hellowar-java-service/refs/heads/main/infra/tomcat/bootstrap-tomcat.sh"
+  be_bootstrap_url = "https://raw.githubusercontent.com/devopsbyte-internal/proj-hellowar-infra/refs/heads/main/scripts/bootstrap-tomcat.sh"
+  fe_bootstrap_url = "https://raw.githubusercontent.com/devopsbyte-internal/proj-hellowar-infra/refs/heads/main/scripts/bootstrap-nginx.sh"
 }
 
 
@@ -85,9 +86,8 @@ module "fe_app" {
   ssh_cidr = var.my_ip_cidr
   app_port = 80
 
-#########
-  user_data = templatefile("${path.module}/userdata-tomcat.sh.tpl", {
-    bootstrap_url = "https://raw.githubusercontent.com/devopsbyte-internal/proj-hellowar-java-service/refs/heads/main/infra/tomcat/bootstrap-tomcat.sh"
+  user_data = templatefile("${path.module}/userdata-nginx.sh.tpl", {
+    bootstrap_url = local.fe_bootstrap_url
   })
 
   extra_tags = {

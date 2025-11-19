@@ -46,7 +46,7 @@ locals {
 
 
 module "be_app" {
-  count = var.en_be ? 1 : 0
+  count  = var.en_be ? 1 : 0
   source = "../../modules/ec2-app"
 
   name          = "hellowar-tomcat-be"
@@ -72,7 +72,7 @@ module "be_app" {
 
 
 module "fe_app" {
-  count = var.en_fe ? 1 : 0
+  count  = var.en_fe ? 1 : 0
   source = "../../modules/ec2-app"
 
   name          = "hellowar-tomcat-fe"

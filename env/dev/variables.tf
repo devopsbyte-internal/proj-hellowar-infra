@@ -1,14 +1,14 @@
 
 variable "en_be" {
   description = "Toggle to provision BE Infra"
-  type = bool
-  default = false
+  type        = bool
+  default     = false
 }
 
 variable "en_fe" {
   description = "Toggle to provision FE Infra"
-  type = bool
-  default = false
+  type        = bool
+  default     = false
 }
 
 variable "aws_region" {

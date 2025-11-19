@@ -11,7 +11,7 @@ set -euo pipefail
 
 TOMCAT_SERVICE_NAME="tomcat"
 TOMCAT_WEBAPPS_DIR="/opt/tomcat/webapps"
-DEPLOY_WAR_PATH="${TOMCAT_WEBAPPS_DIR}/hellowar"
+DEPLOY_WAR_PATH="${TOMCAT_WEBAPPS_DIR}/hellowar.war"
 EXPLODED_DIR="${TOMCAT_WEBAPPS_DIR}/hellowar"
 HEALTH_URL="http://localhost:8080/hellowar/"
 
